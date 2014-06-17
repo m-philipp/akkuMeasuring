@@ -43,7 +43,7 @@ def serialRead():
         
         
 if __name__ == '__main__':
-    print "Text.py Started"
+    print "measure.py Started"
     integrate()
     #serialRead()
         
