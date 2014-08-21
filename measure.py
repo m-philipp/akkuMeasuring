@@ -9,14 +9,15 @@ import io
 import time
 
 def integrate():
-    f = open('17-6-14.txt', "r")
+    f = open('20-8-14.txt', "r")
     cap = [0,0,0,0,0,0]
     for line in f:
         value = line.rstrip()
         parts = value.split(" ")
         # Aufloesung des ADC-Wandlers ist 10bit (1024) bei max 5V
         for i in range(0,6):
-            volts = ((float(parts[i+1])/1024)*5)
+            # volts = ((float(parts[i+1])/1024)*5)
+            volts = ((float(parts[i+1])/830)*4.165)
             
             # Die Spannung wurde alle 3 Sekunden gemessen.
             # Der meue Akku hatte einen Last Widerstand von 110 Ohm
@@ -35,7 +36,7 @@ def serialRead():
     baudrate=9600,    #baudrate
     )
     while 1:
-        f = open('17-6-14.txt', 'a')
+        f = open('20-8-14.txt', 'a')
         line = ser.readline()   # read a '\n' terminated line
         x = str(time.time()) + " " + line
         f.write(x)
